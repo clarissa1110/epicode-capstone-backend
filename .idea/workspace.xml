@@ -5,18 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46070dcc-fc79-46cd-8b23-d5b6401b6dc9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/controllers/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/controllers/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/dto/LoginUserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/dto/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/exceptions/ExceptionsHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/exceptions/UnauthorizedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/exceptions/UserNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/models/Error.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/repositories/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/security/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/security/JwtFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/security/JwtTool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/services/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Capstone/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Capstone/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Capstone/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Capstone/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Capstone/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Capstone/src/main/java/it/epicode/Capstone/CapstoneApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/CapstoneApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Capstone/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Capstone/src/test/java/it/epicode/Capstone/CapstoneApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/test/java/it/epicode/capstone/CapstoneApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,9 +42,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2hjppeXJEkL1d3oGPSY9GTFYaBP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -50,7 +54,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feat--implementBaseStructure",
+    "git-widget-placeholder": "feat--implementAuthentication",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
