@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>it.epicode</groupId>
-	<artifactId>Capstone</artifactId>
+	<artifactId>capstone</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Capstone</name>
 	<description>Demo project for Spring Boot</description>
