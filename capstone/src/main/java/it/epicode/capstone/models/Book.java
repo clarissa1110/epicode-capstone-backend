@@ -1,8 +1,6 @@
 package it.epicode.capstone.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
@@ -24,4 +22,8 @@ public class Book {
     private String publishedDate;
     private List<String> categories;
     private String thumbnail;
+
+    @ManyToOne
+    @JoinColumn(name = "bookshelf_id")
+    private Bookshelf bookshelf;
 }
