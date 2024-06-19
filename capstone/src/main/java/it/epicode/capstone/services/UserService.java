@@ -4,6 +4,8 @@ import it.epicode.capstone.dto.UserDto;
 import it.epicode.capstone.exceptions.UserNotFoundException;
 import it.epicode.capstone.models.User;
 import it.epicode.capstone.repositories.UserRepository;
+import it.epicode.capstone.types.requests.CreateUserRequestBody;
+import it.epicode.capstone.types.requests.UpdateUserRequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -34,18 +36,16 @@ public class UserService {
         return userRepository.findByEmail(email).orElseThrow(() -> new UserNotFoundException("User not found with email: " + email));
     }
 
-    public String addUser(UserDto userDto){
+    public User addUser(CreateUserRequestBody userRequestBody){
         User userToCreate = new User();
-        getUserFields(userToCreate, userDto);
+        setUserFields(userToCreate, userRequestBody);
 
-        userRepository.save(userToCreate);
-
-        return "User successfully created with id: " + userToCreate.getId();
+        return userRepository.save(userToCreate);
     }
 
-    public User editUser(int userId, UserDto userDto) {
+    public User editUser(int userId, UpdateUserRequestBody userRequestBody) {
         User userToUpdate = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User not found with id: " + userId));
-        getUserFields(userToUpdate, userDto);
+        updateUserFields(userToUpdate, userRequestBody);
 
         return userRepository.save(userToUpdate);
     }
@@ -58,12 +58,33 @@ public class UserService {
         return "User with id: " + userId + " successfully deleted";
     }
 
-    public void getUserFields(User userToCreate, UserDto userDto) {
-        userToCreate.setUsername(userDto.getUsername());
-        userToCreate.setEmail(userDto.getEmail());
-        userToCreate.setPassword(passwordEncoder.encode(userDto.getPassword()));
-        userToCreate.setFirstName(userDto.getFirstName());
-        userToCreate.setLastName(userDto.getLastName());
-        userToCreate.setAvatarUrl(userDto.getAvatarUrl());
+    public void setUserFields(User userToCreate, CreateUserRequestBody userRequestBody) {
+        userToCreate.setUsername(userRequestBody.getUsername());
+        userToCreate.setEmail(userRequestBody.getEmail());
+        userToCreate.setPassword(passwordEncoder.encode(userRequestBody.getPassword()));
+        userToCreate.setFirstName(userRequestBody.getFirstName());
+        userToCreate.setLastName(userRequestBody.getLastName());
+        userToCreate.setAvatarUrl(userRequestBody.getAvatarUrl());
+    }
+
+    public void updateUserFields(User userToUpdate, UpdateUserRequestBody userRequestBody) {
+        if (userRequestBody.getUsername() != null) {
+            userToUpdate.setUsername(userRequestBody.getUsername());
+        }
+        if (userRequestBody.getEmail() != null) {
+            userToUpdate.setEmail(userRequestBody.getEmail());
+        }
+        if (userRequestBody.getPassword() != null) {
+            userToUpdate.setPassword(passwordEncoder.encode(userRequestBody.getPassword()));
+        }
+        if (userRequestBody.getFirstName() != null) {
+            userToUpdate.setFirstName(userRequestBody.getFirstName());
+        }
+        if (userRequestBody.getLastName() != null) {
+            userToUpdate.setLastName(userRequestBody.getLastName());
+        }
+        if (userRequestBody.getAvatarUrl() != null) {
+            userToUpdate.setAvatarUrl(userRequestBody.getAvatarUrl());
+        }
     }
 }
