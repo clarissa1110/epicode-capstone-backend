@@ -23,6 +23,16 @@ public class ExceptionsHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler
+    public ResponseEntity<Object> BookshelfNotFoundException (BookshelfNotFoundException e) {
+        Error error = new Error();
+        error.setMessage(e.getMessage());
+        error.setErrorStatus(HttpStatus.NOT_FOUND);
+        error.setErrorTime(LocalDateTime.now());
+
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler
     public ResponseEntity<Object> UnauthorizedException (UnauthorizedException e) {
         Error error = new Error();
         error.setMessage(e.getMessage());

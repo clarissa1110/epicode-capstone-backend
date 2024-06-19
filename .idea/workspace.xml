@@ -5,25 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46070dcc-fc79-46cd-8b23-d5b6401b6dc9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/models/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/repositories/BookRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/services/BookService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/types/requests/CreateUserRequestBody.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/types/requests/LoginUserRequestBody.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/types/requests/UpdateUserRequestBody.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/types/responses/DeleteUserResponseBody.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/types/responses/GetBookResponseBody.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/types/responses/GetUserResponseBody.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/types/responses/LoginUserResponseBody.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/controllers/BookshelfController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/exceptions/BookshelfNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/models/Bookshelf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/repositories/BookshelfRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/services/BookshelfService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/types/requests/CreateBookshelfRequestBody.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/types/requests/UpdateBookshelfRequestBody.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/types/responses/DeleteBookshelfResponseBody.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/services/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/services/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capstone/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capstone/src/main/resources/env.properties" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/resources/env.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/exceptions/ExceptionsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/exceptions/ExceptionsHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/models/Book.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,10 +49,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.CapstoneApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "feat--ImplementBooksAndQueries",
+    "git-widget-placeholder": "feat--implementBookshelf",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
@@ -89,5 +79,16 @@
       <updated>1718117524523</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
