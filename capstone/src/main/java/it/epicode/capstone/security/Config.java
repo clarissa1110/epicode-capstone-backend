@@ -27,6 +27,7 @@ public class Config {
         httpSecurity.cors(Customizer.withDefaults());
 
         httpSecurity.authorizeHttpRequests(http -> http.requestMatchers("/api/**").permitAll());
+        httpSecurity.authorizeHttpRequests(http -> http.requestMatchers("/api/books").permitAll());
         httpSecurity.authorizeHttpRequests(http -> http.requestMatchers( HttpMethod.POST,"/auth/**").permitAll());
 //    httpSecurity.authorizeHttpRequests(http->http.anyRequest().authenticated());
 
