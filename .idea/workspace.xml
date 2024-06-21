@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46070dcc-fc79-46cd-8b23-d5b6401b6dc9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/controllers/BookController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/exceptions/BookNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/types/responses/CompleteGetBookResponseBody.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2024_16_04__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2024_16_04__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/controllers/BookshelfController.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/controllers/BookshelfController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/exceptions/ExceptionsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/exceptions/ExceptionsHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/models/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/security/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/security/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/services/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/services/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/types/responses/GetBookResponseBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/types/responses/GetBookResponseBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/models/Bookshelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/models/Bookshelf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/repositories/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/repositories/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/services/BookshelfService.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone/src/main/java/it/epicode/capstone/services/BookshelfService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,14 +41,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CapstoneApplication.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "update--updateBookManagement",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CapstoneApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;update--updateBookManagement&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Epicode-capstone" />

@@ -18,4 +18,14 @@ public class Bookshelf {
 
     @OneToMany(mappedBy = "bookshelf")
     private List<Book> bookList = new ArrayList<>();
+
+    public void addBook(Book book) {
+        bookList.add(book);
+        book.setBookshelf(this);
+    }
+
+    public void removeBook(Book book) {
+        bookList.remove(book);
+        book.setBookshelf(null);
+    }
 }
