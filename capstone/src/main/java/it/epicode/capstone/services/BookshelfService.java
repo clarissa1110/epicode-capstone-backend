@@ -2,10 +2,8 @@ package it.epicode.capstone.services;
 
 import it.epicode.capstone.exceptions.BookNotFoundException;
 import it.epicode.capstone.exceptions.BookshelfNotFoundException;
-import it.epicode.capstone.exceptions.UserNotFoundException;
 import it.epicode.capstone.models.Book;
 import it.epicode.capstone.models.Bookshelf;
-import it.epicode.capstone.models.User;
 import it.epicode.capstone.repositories.BookRepository;
 import it.epicode.capstone.repositories.BookshelfRepository;
 import it.epicode.capstone.types.requests.CreateBookshelfRequestBody;

@@ -43,6 +43,10 @@ public class BookService {
         }
     }
 
+    public Book retrieveBookById(int bookId) {
+        return bookRepository.findById(bookId).orElseThrow(() -> new BookNotFoundException("Book not found with id: " + bookId));
+    }
+
     private Book mapJsonToBook(GetBookResponseBody.BookResponse bookResponse) {
         Book book = new Book();
 

@@ -25,6 +25,7 @@ public class BookshelfController {
     private BookshelfService bookshelfService;
 
     @PostMapping
+    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public ResponseEntity<Bookshelf> createBookshelf(@RequestBody @Validated CreateBookshelfRequestBody bookshelfRequestBody, BindingResult validation) throws BadRequestException {
         if(validation.hasErrors()){
             throw new BadRequestException(validation.getAllErrors()
@@ -36,7 +37,7 @@ public class BookshelfController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public ResponseEntity<Page<Bookshelf>> getBookshelves(@RequestParam(defaultValue = "0") int page,
                                                          @RequestParam(defaultValue = "10") int size,
                                                          @RequestParam(defaultValue = "id") String sortBy) {
@@ -44,13 +45,13 @@ public class BookshelfController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public ResponseEntity<Bookshelf> getBookshelf(@PathVariable int bookshelfId) {
         return new ResponseEntity<>(bookshelfService.retrieveBookshelfById(bookshelfId), HttpStatus.OK) ;
     }
 
     @PatchMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public ResponseEntity<Bookshelf> updateBookshelf(@RequestBody @Validated UpdateBookshelfRequestBody bookshelfRequestBody,
                                            @PathVariable int bookshelfId,
                                            BindingResult validation) throws BadRequestException {
@@ -64,18 +65,20 @@ public class BookshelfController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public String deleteBookshelf(@PathVariable int bookshelfId) {
         return bookshelfService.removeBookshelf(bookshelfId);
     }
 
     @PostMapping("/{bookshelfId}/books/{bookId}")
+    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public ResponseEntity<Bookshelf> addBookToBookshelf(@PathVariable int bookshelfId, @PathVariable int bookId) {
         Bookshelf updatedBookshelf = bookshelfService.addBookToBookshelf(bookshelfId, bookId);
         return new ResponseEntity<>(updatedBookshelf, HttpStatus.OK);
     }
 
     @DeleteMapping("/{bookshelfId}/books/{bookId}")
+    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public ResponseEntity<Bookshelf> removeBookFromBookshelf(@PathVariable int bookshelfId, @PathVariable int bookId) {
         Bookshelf updatedBookshelf = bookshelfService.removeBookFromBookshelf(bookshelfId, bookId);
         return new ResponseEntity<>(updatedBookshelf, HttpStatus.OK);

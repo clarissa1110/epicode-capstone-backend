@@ -17,4 +17,6 @@ public class UpdateUserRequestBody {
     private String lastName;
 
     private String avatarUrl;
+
+    private String userRole;
 }

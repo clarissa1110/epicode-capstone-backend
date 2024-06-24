@@ -1,5 +1,6 @@
 package it.epicode.capstone.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
@@ -21,10 +22,10 @@ public class Book {
     @Column(length = 500)
     private String etag;
 
-    @Column(length = 100)
+    @Column(length = 1000)
     private String title;
 
-    @Column(length = 100)
+    @Column(length = 1000)
     private String subtitle;
 
     @Column(length = 500)
@@ -33,7 +34,7 @@ public class Book {
     @Column(length = 500)
     private String publisher;
 
-    @Column(length = 2000)
+    @Column(length = 10000)
     public String description;
 
     @Column(name = "published_date")
@@ -43,5 +44,23 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "bookshelf_id")
+    @JsonIgnore
     private Bookshelf bookshelf;
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookId=" + bookId +
+                ", id='" + id + '\'' +
+                ", etag='" + etag + '\'' +
+                ", title='" + title + '\'' +
+                ", subtitle='" + subtitle + '\'' +
+                ", authors=" + authors +
+                ", publisher='" + publisher + '\'' +
+                ", description='" + description + '\'' +
+                ", publishedDate='" + publishedDate + '\'' +
+                ", categories=" + categories +
+                ", thumbnail='" + thumbnail + '\'' +
+                '}';
+    }
 }

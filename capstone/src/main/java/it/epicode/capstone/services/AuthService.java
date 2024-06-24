@@ -1,6 +1,5 @@
 package it.epicode.capstone.services;
 
-import it.epicode.capstone.dto.LoginUserDto;
 import it.epicode.capstone.exceptions.UnauthorizedException;
 import it.epicode.capstone.models.User;
 import it.epicode.capstone.security.JwtTool;
