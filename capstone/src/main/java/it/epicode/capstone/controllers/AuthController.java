@@ -1,7 +1,5 @@
 package it.epicode.capstone.controllers;
 
-import it.epicode.capstone.dto.LoginUserDto;
-import it.epicode.capstone.dto.UserDto;
 import it.epicode.capstone.models.User;
 import it.epicode.capstone.services.AuthService;
 import it.epicode.capstone.services.UserService;

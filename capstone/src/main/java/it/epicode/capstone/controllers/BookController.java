@@ -2,19 +2,14 @@ package it.epicode.capstone.controllers;
 
 import it.epicode.capstone.models.Book;
 import it.epicode.capstone.services.BookService;
-import it.epicode.capstone.types.responses.CompleteGetBookResponseBody;
-import it.epicode.capstone.types.responses.GetBookResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -32,9 +27,10 @@ public class BookController {
       return bookService.retrieveAllBooks(q);
     }
 
-//    public List<CompleteGetBookResponseBody> getALlBooks(@RequestParam String q) {
-//        return bookService.retrieveAllBooks(q);
-//    }
-
+    @GetMapping("api/books/{id}")
+    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
+    public ResponseEntity<Book> getBook(@PathVariable int bookId) {
+        return new ResponseEntity<>(bookService.retrieveBookById(bookId), HttpStatus.OK);
+    }
 
 }

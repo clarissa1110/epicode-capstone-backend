@@ -1,8 +1,8 @@
 package it.epicode.capstone.services;
 
-import it.epicode.capstone.dto.UserDto;
 import it.epicode.capstone.exceptions.UserNotFoundException;
 import it.epicode.capstone.models.User;
+import it.epicode.capstone.models.enums.UserRole;
 import it.epicode.capstone.repositories.UserRepository;
 import it.epicode.capstone.types.requests.CreateUserRequestBody;
 import it.epicode.capstone.types.requests.UpdateUserRequestBody;
@@ -65,6 +65,7 @@ public class UserService {
         userToCreate.setFirstName(userRequestBody.getFirstName());
         userToCreate.setLastName(userRequestBody.getLastName());
         userToCreate.setAvatarUrl(userRequestBody.getAvatarUrl());
+        userToCreate.setUserRole(UserRole.valueOf(userRequestBody.getUserRole()));
     }
 
     public void updateUserFields(User userToUpdate, UpdateUserRequestBody userRequestBody) {
@@ -85,6 +86,9 @@ public class UserService {
         }
         if (userRequestBody.getAvatarUrl() != null) {
             userToUpdate.setAvatarUrl(userRequestBody.getAvatarUrl());
+        }
+        if (userRequestBody.getUserRole() != null) {
+            userToUpdate.setUserRole(UserRole.valueOf(userRequestBody.getUserRole()));
         }
     }
 }

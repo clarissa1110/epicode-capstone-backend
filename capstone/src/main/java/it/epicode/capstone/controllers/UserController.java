@@ -1,6 +1,5 @@
 package it.epicode.capstone.controllers;
 
-import it.epicode.capstone.dto.UserDto;
 import it.epicode.capstone.models.User;
 import it.epicode.capstone.services.UserService;
 import it.epicode.capstone.types.requests.UpdateUserRequestBody;
@@ -22,7 +21,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-//    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Page<User>> getUsers(@RequestParam(defaultValue = "0") int page,
                                               @RequestParam(defaultValue = "10") int size,
                                               @RequestParam(defaultValue = "id") String sortBy) {
@@ -30,14 +29,13 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public ResponseEntity<User> getUser(@PathVariable int userId) {
         return new ResponseEntity<>(userService.retrieveUserById(userId), HttpStatus.OK) ;
     }
 
     @PatchMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public ResponseEntity<User> updateUser(@RequestBody @Validated UpdateUserRequestBody userRequestBody,
                                            @PathVariable int userId,
                                            BindingResult validation) throws BadRequestException {
