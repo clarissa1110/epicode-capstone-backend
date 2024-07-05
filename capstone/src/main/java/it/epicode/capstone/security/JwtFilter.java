@@ -15,6 +15,8 @@ import org.springframework.util.AntPathMatcher;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 @Component
 public class JwtFilter extends OncePerRequestFilter {
@@ -24,6 +26,11 @@ public class JwtFilter extends OncePerRequestFilter {
 
     @Autowired
     private UserService userService;
+
+    public JwtFilter(JwtTool jwtTool, UserService userService) {
+        this.jwtTool = jwtTool;
+        this.userService = userService;
+    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
@@ -49,8 +56,12 @@ public class JwtFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
+    private static final List<String> EXCLUDE_URLS = Arrays.asList("/api/auth/register", "/api/auth/login");
+
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        return new AntPathMatcher().match("/api/auth/**", request.getServletPath());
+        String path = request.getRequestURI();
+        return EXCLUDE_URLS.stream().anyMatch(path::equalsIgnoreCase);
+//        return new AntPathMatcher().match("/api/auth/**", request.getServletPath());
     }
 }

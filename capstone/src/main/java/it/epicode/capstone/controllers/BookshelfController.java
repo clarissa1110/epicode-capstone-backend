@@ -1,5 +1,6 @@
 package it.epicode.capstone.controllers;
 
+import it.epicode.capstone.models.Book;
 import it.epicode.capstone.models.Bookshelf;
 import it.epicode.capstone.models.User;
 import it.epicode.capstone.services.BookshelfService;
@@ -17,8 +18,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/bookshelves")
+@RequestMapping("/api/users/{userId}/bookshelves")
 public class BookshelfController {
 
     @Autowired
@@ -26,31 +29,34 @@ public class BookshelfController {
 
     @PostMapping
     @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
-    public ResponseEntity<Bookshelf> createBookshelf(@RequestBody @Validated CreateBookshelfRequestBody bookshelfRequestBody, BindingResult validation) throws BadRequestException {
+    public ResponseEntity<Bookshelf> createBookshelf(@PathVariable int userId, @RequestBody @Validated CreateBookshelfRequestBody bookshelfRequestBody, BindingResult validation) throws BadRequestException {
         if(validation.hasErrors()){
             throw new BadRequestException(validation.getAllErrors()
                     .stream()
                     .map(objectError -> objectError.getDefaultMessage())
                     .reduce("", (acc, curr) -> acc+curr));
         }
-        return new ResponseEntity<>(bookshelfService.addBookshelf(bookshelfRequestBody), HttpStatus.CREATED);
+        return new ResponseEntity<>(bookshelfService.addBookshelf(bookshelfRequestBody, userId), HttpStatus.CREATED);
     }
 
     @GetMapping
     @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
-    public ResponseEntity<Page<Bookshelf>> getBookshelves(@RequestParam(defaultValue = "0") int page,
-                                                         @RequestParam(defaultValue = "10") int size,
-                                                         @RequestParam(defaultValue = "id") String sortBy) {
-        return new ResponseEntity<>(bookshelfService.retrieveAllBookshelves(page, size, sortBy), HttpStatus.OK) ;
+    public ResponseEntity<List<Bookshelf>> getBookshelves() {
+        return new ResponseEntity<>(bookshelfService.retrieveAllBookshelves(), HttpStatus.OK) ;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{bookshelfId}")
     @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public ResponseEntity<Bookshelf> getBookshelf(@PathVariable int bookshelfId) {
         return new ResponseEntity<>(bookshelfService.retrieveBookshelfById(bookshelfId), HttpStatus.OK) ;
     }
 
-    @PatchMapping("/{id}")
+    @GetMapping("/{bookshelfId}/books")
+    public ResponseEntity<List<Book>> getBooksByShelfId(@PathVariable int bookshelfId) {
+        return new ResponseEntity<>(bookshelfService.retrieveBooksByShelfId(bookshelfId), HttpStatus.OK);
+    }
+
+    @PatchMapping("/{bookshelfId}")
     @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public ResponseEntity<Bookshelf> updateBookshelf(@RequestBody @Validated UpdateBookshelfRequestBody bookshelfRequestBody,
                                            @PathVariable int bookshelfId,
@@ -64,7 +70,7 @@ public class BookshelfController {
         return new ResponseEntity<>(bookshelfService.editBookshelf(bookshelfId, bookshelfRequestBody), HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{bookshelfId}")
     @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public String deleteBookshelf(@PathVariable int bookshelfId) {
         return bookshelfService.removeBookshelf(bookshelfId);

@@ -27,12 +27,14 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody @Validated CreateUserRequestBody userRequestBody,
                                          BindingResult validation) throws BadRequestException {
+        System.out.println(userRequestBody);
         if (validation.hasErrors()) {
             throw new BadRequestException(validation.getAllErrors()
                     .stream()
                     .map(objectError -> objectError.getDefaultMessage())
                     .reduce("", (acc, curr) -> acc + curr));
         }
+
         return new ResponseEntity<>(userService.addUser(userRequestBody), HttpStatus.CREATED);
     }
 

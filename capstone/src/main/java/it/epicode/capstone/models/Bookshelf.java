@@ -1,5 +1,6 @@
 package it.epicode.capstone.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -12,12 +13,17 @@ public class Bookshelf {
 
     @Id
     @GeneratedValue
-    private int id;
+    private int bookshelfId;
 
     private String name;
 
     @OneToMany(mappedBy = "bookshelf")
     private List<Book> bookList = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    private User user;
 
     public void addBook(Book book) {
         bookList.add(book);

@@ -1,5 +1,6 @@
 package it.epicode.capstone.types.responses;
 
+import jakarta.annotation.Nullable;
 import lombok.Data;
 
 import java.util.List;

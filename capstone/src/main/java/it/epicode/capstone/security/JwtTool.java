@@ -20,7 +20,7 @@ public class JwtTool {
     public String createToken(User user) {
         return Jwts.builder().issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis() + duration))
-                .subject(String.valueOf(user.getId()))
+                .subject(String.valueOf(user.getUserId()))
                 .signWith(Keys.hmacShaKeyFor(secret.getBytes()))
                 .compact();
     }

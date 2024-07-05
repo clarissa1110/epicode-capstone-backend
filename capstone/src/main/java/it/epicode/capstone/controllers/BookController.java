@@ -27,7 +27,7 @@ public class BookController {
       return bookService.retrieveAllBooks(q);
     }
 
-    @GetMapping("api/books/{id}")
+    @GetMapping("api/books/{bookId}")
     @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public ResponseEntity<Book> getBook(@PathVariable int bookId) {
         return new ResponseEntity<>(bookService.retrieveBookById(bookId), HttpStatus.OK);
